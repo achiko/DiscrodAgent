@@ -1,13 +1,13 @@
 # Cross-Channel Discord Agent
 
+Create a Discord `AI Agent` that monitors multiple Discord channels. When the agent detects signals related to subscribed topics, it will react accordingly.
+
 ## Project Structure
 
 - [Database/](./Database/) - Core database implementations and configurations
 - [Database/readme.md](./Database/readme.md) - Database schema design and entity relationships
 - [DiscordData/readme.md](./DiscrodData/readme.md) - Discord bot implementation details and setup guide
 
-
-Create a Discord `AI Agent` that monitors multiple Discord channels. When the agent detects signals related to subscribed topics, it will react accordingly.
 
 ## Scenario
 

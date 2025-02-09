@@ -81,3 +81,11 @@ public
 
 # Optional VS Code settings
 .vscode/*
+
+/data
+/tmp
+./tmp/data/
+./data/postgres
+./data/redis
+./data/redis-data
+./data/db-data

@@ -6,10 +6,31 @@ We use the [DiscordChatExporter](https://github.com/Tyrrrz/DiscordChatExporter) 
 
 ## How to use
 
+First, create a `.env` (see .env sample) file in your project directory with your Discord token:
+
+```plaintext
+    DISCORD_TOKEN=your_token_here
+```
+
 ```bash
-docker run -it --rm -v $(pwd)/data:/data tyrrrz/discordchatexporter --token $DISCORD_TOKEN --channels $CHANNEL_ID --output /data/channel.json
 
+docker run -it --rm \
+  -v $(pwd)/data:/data \
+  tyrrrz/discordchatexporter \
+  --token $DISCORD_TOKEN \
+  --channels $CHANNEL_ID \
+  --output /data/channel.json
 
+# The Eth Global sample channel data download
+
+docker run --rm \
+  -v $PWD/data:/out:z \
+  tyrrrz/discordchatexporter:stable export \
+  -t MzMyOTI3OTg2MTM3NDMyMDY0.GxYPdx.0KCQl9IEIHjBlzIMz5h9OqrxIdbq73mhC9fopg \
+  -c 1319401418532065280 \
+  -f Json
+   --output $PWD/data/eth_global_channel.json
+  
 ```
 
 ## How to get the CHANNEL_ID

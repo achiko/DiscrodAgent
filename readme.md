@@ -1,7 +1,7 @@
 # Cross-Channel Discord Agent
 
 
-Create a Discord `AI Agent` that monitors and manages multiple Discord channels. When the agent detects signals related to subscribed topics, it will react accordingly.
+Create a Discord `AI Agent` that monitors multiple Discord channels. When the agent detects signals related to subscribed topics, it will react accordingly.
 
 ## Scenario
 

@@ -27,7 +27,7 @@ docker run --rm \
   -v $PWD/data:/out:z \
   tyrrrz/discordchatexporter:stable export \
   -t $DISCORD_TOKEN \
-  -c 1319401418532065280 \
+  -c 1319401418532065280 \ # The Eth Global channel ID
   -f Json
    --output $PWD/data/eth_global_channel.json
   

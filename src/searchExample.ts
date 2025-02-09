@@ -1,27 +1,12 @@
-import dotenv from 'dotenv';
+import { config } from './config';
 import { VectorSearchService } from './services/vectorSearch';
 
-// Load environment variables
-dotenv.config();
+const vectorSearchService = new VectorSearchService(config.connectionString, config.openaiApiKey);
 
-async function main() {
-    const { POSTGRES_USER, POSTGRES_PASSWORD, POSTGRES_HOST, POSTGRES_PORT, POSTGRES_DB, OPENAI_API_KEY } = process.env;
-
-    // Validate environment variables
-    if (!POSTGRES_USER || !POSTGRES_PASSWORD || !POSTGRES_HOST || !POSTGRES_PORT || !POSTGRES_DB || !OPENAI_API_KEY) {
-        console.error('Missing required environment variables');
-        process.exit(1);
-    }
-
-    // Create connection string
-    const connectionString = `postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}`;
-    
-    // Initialize search service
-    const searchService = new VectorSearchService(connectionString, OPENAI_API_KEY);
-
+async function performSearch(searchText: string) {
     try {
         // Perform search
-        const searchResults = await searchService.searchSimilarMessages("Your search query here", 5);
+        const searchResults = await vectorSearchService.searchSimilarMessages(searchText, 5);
         
         // Display results
         console.log("Search Results:");
@@ -32,13 +17,14 @@ async function main() {
             console.log(`Author: ${result.author_name}`);
             console.log(`Channel: ${result.channel_name}`);
             console.log(`Guild: ${result.guild_name}`);
-            console.log(`Time: ${result.message_timestamp}`);
+            console.log(result.message_timestamp);
         });
     } catch (error) {
         console.error('Search failed:', error);
     } finally {
-        await searchService.close();
+        await vectorSearchService.close();
     }
 }
 
-main().catch(console.error); 
+// Example usage
+performSearch('Your search query here'); 

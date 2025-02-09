@@ -6,6 +6,7 @@ We use [PGVector]( https://github.com/pgvector/pgvector) to store the data. The 
 
 ```sql 
 CREATE EXTENSION vector;
+```
 
 ## Adding Vector Field
 

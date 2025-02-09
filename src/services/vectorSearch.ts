@@ -19,7 +19,7 @@ export class VectorSearchService {
         this.openai = new OpenAI({ apiKey: openaiApiKey });
     }
 
-    async searchSimilarMessages(searchText: string, limit: number = 5): Promise<SearchResult[]> {
+    async searchSimilarMessages(searchText: string, limit: number = 10): Promise<SearchResult[]> {
         try {
             // Get embedding for search text using OpenAI
             const embedding = await this.openai.embeddings.create({

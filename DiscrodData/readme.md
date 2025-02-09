@@ -26,7 +26,7 @@ docker run -it --rm \
 docker run --rm \
   -v $PWD/data:/out:z \
   tyrrrz/discordchatexporter:stable export \
-  -t MzMyOTI3OTg2MTM3NDMyMDY0.GxYPdx.0KCQl9IEIHjBlzIMz5h9OqrxIdbq73mhC9fopg \
+  -t $DISCORD_TOKEN \
   -c 1319401418532065280 \
   -f Json
    --output $PWD/data/eth_global_channel.json
